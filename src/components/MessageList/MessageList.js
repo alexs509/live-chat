@@ -22,8 +22,6 @@ export class MessageList extends React.Component {
         {content:"Pourquoi moi", username:"Mahmoud"}
       ]
     };
-    const { datas } = props;
-    console.log(datas)
   }
   
 
