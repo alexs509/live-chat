@@ -10,10 +10,8 @@ export class MessageBar extends React.Component {
   }
 
   handleSubmit(event) {
-    this.setState({ datas: this.state.value })
     event.preventDefault();
     this.props.change(this.state.value)
-
   }
 
   handleChange(event) {
@@ -23,7 +21,6 @@ export class MessageBar extends React.Component {
 
   render() {
     return (
-
       <div className="App">
         <form onSubmit={this.handleSubmit}>
           <input value={this.state.value} onChange={this.handleChange} type="text" name="name" />

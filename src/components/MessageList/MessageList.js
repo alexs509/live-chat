@@ -23,16 +23,25 @@ export class MessageList extends React.Component {
       ]
     };
   }
-  
 
   render()  {
-    return ( 
+
+    if(this.props.value){
+      console.log(this.props.value);
+      this.state.msg = [...this.state.msg,{content:this.props.value, username:"Alex"}]
+      //(this.state.msg).push({content:this.props.value, username:"Alex"})
+  }
+
+  return(
+  this.state.msg.map((chat, index1)=>{
+    return (  
       <ul>
-        {this.state.msg.map(txt => <MessageItem message={txt} />)}
-        <div>Test: {this.props.value} </div>
-      </ul>
-      
+        <MessageItem message={chat} />
+      </ul>      
     );
+    
+  }))
+    
   } 
 }
 
