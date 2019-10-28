@@ -31,7 +31,9 @@ export class MessageList extends React.Component {
     return ( 
       <ul>
         {this.state.msg.map(txt => <MessageItem message={txt} />)}
+        <div>Test: {this.props.value} </div>
       </ul>
+      
     );
   } 
 }
