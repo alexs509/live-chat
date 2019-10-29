@@ -6,8 +6,9 @@ import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton/IconButton';
-import SearchIcon from '@material-ui/icons/Search';
 import SendIcon from '@material-ui/icons/Send';
+import FormControl from '@material-ui/core/FormControl';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -51,21 +52,18 @@ export class MessageBar extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <Paper>
-      <InputBase
+      <InputBase fullWidth
       value={this.state.value} onChange={this.handleChange}
-        placeholder="tape your message"
+        placeholder=" Tape your message"
         inputProps={{ 'aria-label': 'tape your message' }}
       />
       <IconButton onClick={this.handleSubmit} aria-label="search">
       <SendIcon  />
       </IconButton>
-      <Divider orientation="vertical" />
-      
     </Paper>
-         
-      </div>
+    </div>
     );
   }
 }

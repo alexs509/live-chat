@@ -26,7 +26,6 @@ export class Chat extends React.Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Chat 💬
         </p>
           <div>
             <MessageList value={this.state.value}  />
