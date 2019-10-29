@@ -29,7 +29,6 @@ export class MessageList extends React.Component {
     if(this.props.value){
       console.log(this.props.value);
       this.state.msg = [...this.state.msg,{content:this.props.value, username:"Alex"}]
-      //(this.state.msg).push({content:this.props.value, username:"Alex"})
   }
 
   return(

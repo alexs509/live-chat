@@ -3,6 +3,8 @@ import logo from '../../logo.svg';
 import './Chat.css';
 import MessageBar from '../MessageBar/MessageBar';
 import MessageList from '../MessageList/MessageList';
+import Emoji from 'react-emoji-render';
+
 
 
 export class Chat extends React.Component {
@@ -24,7 +26,7 @@ export class Chat extends React.Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Chat
+            Chat 💬
         </p>
           <div>
             <MessageList value={this.state.value}  />
