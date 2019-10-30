@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Login from './components/Login/Login'
 
 function App() {
   return (
@@ -37,8 +38,6 @@ function Home() {
   return <h2>Home</h2>;
 }
 
-function Login() {
-  return <h2>Login</h2>;
-}
+
 
 export default App;
