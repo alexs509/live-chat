@@ -57,6 +57,7 @@ export class MessageBar extends React.Component {
       <div>    
           <Snackbar
           style={{ color: "White" }}
+          
         open={true}
         autoHideDuration={3000}
         color="danger"

@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import TextField from '@material-ui/core/TextField';
 import { connect } from 'react-redux'
+import { addItem } from '../../redux/action'
 import '../../App.css';
 import '../../index.css';
 
@@ -14,7 +15,7 @@ import '../../index.css';
 export class Login extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { logged: '' };
+        this.state = { loggeduser: '' };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -22,7 +23,7 @@ export class Login extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.sendMessage(this.state)
-        this.setState({ logged: "alex" })
+        this.setState({ loggeduser: "alex" })
     }
 
     handleChange(event) {
@@ -57,19 +58,20 @@ export class Login extends React.Component {
     }
 }
 
-/* const mapDispatchToProps = dispatch => {
+ const mapDispatchToProps = dispatch => {
   return {
     sendMessage: (message) => {
       dispatch(addItem(message, "Alex"))
     }
   }
-}; */
+}; 
 
-/* const connectBar = connect(
+ const connectLogin = connect(
   null,
   mapDispatchToProps
-) */
+) 
 
-/* export default connectBar(Login); */
+export default connectLogin(Login);
 
-export default Login;
+/* export default Login;
+ */

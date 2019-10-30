@@ -26,7 +26,7 @@ export class MessageList extends React.Component {
       <Card className={classes.card}>
         <CardContent>
           <Typography color="textSecondary" gutterBottom>
-            Live Chat 💬
+           <p>Live Chat 💬</p><br/>
         </Typography>
           <Typography variant="h5" component="h2">
             {this.props.messages.map(chat => <MessageItem message={chat} />)}
