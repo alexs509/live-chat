@@ -14,7 +14,10 @@ import Snackbar from '@material-ui/core/Snackbar';
 export class MessageBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { message: '', username: 'alex', check: false };
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    let foo = params.get('logged');
+    this.state = { message: '', username: foo, check: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     
@@ -26,7 +29,7 @@ export class MessageBar extends React.Component {
     if(this.state.message){
     event.preventDefault();
     this.props.sendMessage(this.state)
-    this.setState({ message: "", username: "alex", check:false })
+    this.setState({ message: "", username: "", check:false })
   }
   else{
     this.state.check = true
@@ -56,12 +59,8 @@ export class MessageBar extends React.Component {
       {this.state.check == true && 
       <div>    
           <Snackbar
-          style={{ color: "White" }}
-          
         open={true}
-        autoHideDuration={3000}
         color="danger"
-        TransitionComponent={'SlideTransition'}
         ContentProps={{
           'aria-describedby': 'message-id',
         }}

@@ -9,8 +9,14 @@ import { connect } from 'react-redux'
 import { addItem } from '../../redux/action'
 import '../../App.css';
 import '../../index.css';
-
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch,
+    useParams
+} from "react-router-dom";
 
 export class Login extends React.Component {
     constructor(props) {
@@ -45,10 +51,10 @@ export class Login extends React.Component {
                                 variant="outlined"
                                 type="text"
                             /><br />
-                            <Button onClick={this.handleSubmit} variant="contained" color="primary">
+                            <Link to={"/home?logged="+this.state.loggeduser}><Button renderAs="button" variant="contained" color="primary">
                                 <VerifiedUserIcon />
                                 Se connecter
-      </Button>
+      </Button></Link>
                             <br /><br />
                         </div>
                     </Paper>
@@ -58,18 +64,18 @@ export class Login extends React.Component {
     }
 }
 
- const mapDispatchToProps = dispatch => {
-  return {
-    sendMessage: (message) => {
-      dispatch(addItem(message, "Alex"))
+const mapDispatchToProps = dispatch => {
+    return {
+        sendMessage: (message) => {
+            dispatch(addItem(message, "Alex"))
+        }
     }
-  }
-}; 
+};
 
- const connectLogin = connect(
-  null,
-  mapDispatchToProps
-) 
+const connectLogin = connect(
+    null,
+    mapDispatchToProps
+)
 
 export default connectLogin(Login);
 

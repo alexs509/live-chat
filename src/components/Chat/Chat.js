@@ -9,6 +9,7 @@ import { initStore } from '../../redux/store'
 
 export class Chat extends React.Component {
 
+
   render() {
     return (
       <div className="App">

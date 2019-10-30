@@ -25,7 +25,10 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path="/">
+          <Route path="/:logged">
+            <Chat />
+          </Route>
+          <Route path="/home/:logged">
             <Chat />
           </Route>
         </Switch>
