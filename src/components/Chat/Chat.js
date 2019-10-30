@@ -9,8 +9,6 @@ import { initStore } from '../../redux/store'
 
 export class Chat extends React.Component {
 
-  
-
   render() {
     return (
       <div className="App">
@@ -27,6 +25,5 @@ export class Chat extends React.Component {
     )
   }
 }
-
 
 export default Chat;

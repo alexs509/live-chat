@@ -22,7 +22,7 @@ export class MessageBar extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ content: event.target.value });
   }
 
   render() {
