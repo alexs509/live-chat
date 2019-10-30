@@ -8,14 +8,18 @@ import CardContent from '@material-ui/core/CardContent';
 import { createStore } from 'redux'
 import todoApp from '../../redux/reducers'
 import { connect } from 'react-redux'
+import { functiongetMessages } from '../../redux/action'
 
-
-const store = createStore(todoApp)
-console.log(store.getState())
 
 export class MessageList extends React.Component {
 
+  componentDidMount() {
+    this.props.dispatch(functiongetMessages())
+  }
+  
   render() {
+    console.log(this.props)
+    
     const { classes } = this.props;
 
     return (
@@ -34,6 +38,7 @@ export class MessageList extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
     messages: state
   }

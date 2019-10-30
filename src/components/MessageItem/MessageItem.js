@@ -12,7 +12,7 @@ export class MessageList extends React.Component {
 
 
   render() {
-    console.log(this.props)
+    console.log(this.props.message)
     return (
       <div>
         <Grid container justify="center" spacing={10}>
@@ -31,7 +31,7 @@ export class MessageList extends React.Component {
               variant="body1"
               color="textPrimary"
             >
-              <Emoji text={this.props.message.content} />
+              <Emoji text={this.props.message.message} />
             </Typography>
 
           </Grid>

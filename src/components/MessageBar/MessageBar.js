@@ -10,7 +10,7 @@ import { addItem } from '../../redux/action'
 export class MessageBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { content: '', username: 'alex' };
+    this.state = { message: '', username: 'alex' };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -18,11 +18,11 @@ export class MessageBar extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     this.props.sendMessage(this.state)
-    this.setState({ content: "", username: "alex" })
+    this.setState({ message: "", username: "alex" })
   }
 
   handleChange(event) {
-    this.setState({ content: event.target.value });
+    this.setState({ message: event.target.value });
   }
 
   render() {
@@ -43,8 +43,8 @@ export class MessageBar extends React.Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    sendMessage: (content) => {
-      dispatch(addItem(content, "Alex"))
+    sendMessage: (message) => {
+      dispatch(addItem(message, "Alex"))
     }
   }
 };
