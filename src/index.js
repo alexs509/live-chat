@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Chat from './components/Chat/Chat';
 import * as serviceWorker from './serviceWorker';
+import App from './App'
 
 
 ReactDOM.render(
-    <Chat />,
+    <App />,
   document.getElementById('root'));
 
 
