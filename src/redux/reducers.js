@@ -1,6 +1,5 @@
 import { ADD_ITEM, GET_MESSAGES_SUCCESS, GET_MESSAGES_ERROR } from './action'
 
-
 export function addItem(state = [], action) {
   switch (action.type) {
     case ADD_ITEM:
