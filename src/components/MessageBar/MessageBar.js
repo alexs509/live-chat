@@ -5,28 +5,44 @@ import IconButton from '@material-ui/core/IconButton/IconButton';
 import SendIcon from '@material-ui/icons/Send';
 import { connect } from 'react-redux'
 import { addItem } from '../../redux/action'
+import SnackbarContent from '@material-ui/core/SnackbarContent';
+import Snackbar from '@material-ui/core/Snackbar';
+
+
 
 
 export class MessageBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { message: '', username: 'alex' };
+    this.state = { message: '', username: 'alex', check: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
   }
+  
 
   handleSubmit(event) {
+    this.handleChange(event);
+    if(this.state.message){
     event.preventDefault();
     this.props.sendMessage(this.state)
-    this.setState({ message: "", username: "alex" })
+    this.setState({ message: "", username: "alex", check:false })
+  }
+  else{
+    this.state.check = true
+  }
+  console.log()
   }
 
   handleChange(event) {
     this.setState({ message: event.target.value });
   }
+  
+  
 
   render() {
     return (
+      <div>
       <Paper>
         <InputBase fullWidth
           value={this.state.message} onChange={this.handleChange}
@@ -37,6 +53,23 @@ export class MessageBar extends React.Component {
           <SendIcon />
         </IconButton>
       </Paper>
+      {this.state.check == true && 
+      <div>    
+          <Snackbar
+          style={{ color: "White" }}
+        open={true}
+        autoHideDuration={3000}
+        color="danger"
+        TransitionComponent={'SlideTransition'}
+        ContentProps={{
+          'aria-describedby': 'message-id',
+        }}
+        message={"Erreur : Message vide"}
+        
+      />
+      
+      </div>}
+      </div>
     );
   }
 }
