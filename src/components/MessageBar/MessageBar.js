@@ -14,13 +14,18 @@ import Snackbar from '@material-ui/core/Snackbar';
 export class MessageBar extends React.Component {
   constructor(props) {
     super(props);
-    let search = window.location.search;
-    let params = new URLSearchParams(search);
-    let foo = params.get('logged');
-    this.state = { message: '', username: foo, check: false };
+    let userLogged = this.getUser();
+    this.state = { message: '', username: userLogged, check: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     
+  }
+
+  getUser(){
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    let userLogged = params.get('logged');
+    return userLogged
   }
   
 
@@ -29,7 +34,7 @@ export class MessageBar extends React.Component {
     if(this.state.message){
     event.preventDefault();
     this.props.sendMessage(this.state)
-    this.setState({ message: "", username: "", check:false })
+    this.setState({ message: "", username: this.getUser(), check:false })
   }
   else{
     this.state.check = true
