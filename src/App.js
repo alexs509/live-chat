@@ -6,16 +6,18 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from './components/Login/Login'
+import history from "./history";
+
 
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div>
-        <AppBar position="static">
+        <AppBar color="primary" position="static">
           <Toolbar>
-            <Button to="/" color="inherit"><Link to="/">Home</Link></Button>
-            <Button to="/chat" color="inherit"><Link to="/chat">Chat</Link></Button>
-            <Button to="/login" color="inherit"><Link to="/login">Login</Link></Button>
+            <Button variant="contained" to="/" color="inherit"><Link style={{ textDecoration: 'none' }} to="/">Home</Link></Button>&nbsp;
+            <Button variant="contained" to="/chat" color="inherit"><Link style={{ textDecoration: 'none' }} to="/chat">Chat</Link></Button>&nbsp;
+            <Button variant="contained" to="/login" color="inherit"><Link style={{ textDecoration: 'none' }} to="/login">Login</Link></Button>
           </Toolbar>
         </AppBar>
         <Switch>

@@ -3,32 +3,31 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import TextField from '@material-ui/core/TextField';
-import { connect } from 'react-redux'
-import { addItem } from '../../redux/action'
 import '../../App.css';
 import '../../index.css';
 import {
     Link,
 } from "react-router-dom";
+//import history from "../../history";
+
 
 export class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = { loggeduser: '' };
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        this.props.sendMessage(this.state)
-        this.setState({ loggeduser: "alex" })
-    }
 
     handleChange(event) {
         this.setState({ loggeduser: event.target.value });
     }
 
+    /* onClick() {
+        history.push('/chat?logged=dd');
+        window.location.reload()
+    }
+ */
     render() {
         return (
             <div className="App">
@@ -44,7 +43,7 @@ export class Login extends React.Component {
                                 variant="outlined"
                                 type="text"
                             /><br />
-                            <Link to={"/chat?logged="+this.state.loggeduser}><Button renderAs="button" variant="contained" color="primary">
+                            <Link  style={{ textDecoration: 'none' }} to={"/chat?logged="+this.state.loggeduser}><Button renderAs="button" variant="contained" color="primary">
                                 <VerifiedUserIcon />
                                 Se connecter
       </Button></Link>
@@ -57,20 +56,4 @@ export class Login extends React.Component {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        sendMessage: (message) => {
-            dispatch(addItem(message, "Alex"))
-        }
-    }
-};
-
-const connectLogin = connect(
-    null,
-    mapDispatchToProps
-)
-
-export default connectLogin(Login);
-
-/* export default Login;
- */
+export default Login;
