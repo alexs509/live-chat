@@ -30,7 +30,7 @@ export class MessageBar extends React.Component {
 
   handleSubmit(event) {
     this.handleChange(event);
-    if (this.state.message) {
+    if (this.state.message && this.state.username) {
       event.preventDefault();
       this.props.sendMessage(this.state)
       this.setState({ message: "", username: this.getUser(), check: false })
@@ -67,8 +67,7 @@ export class MessageBar extends React.Component {
               ContentProps={{
                 'aria-describedby': 'message-id',
               }}
-              message={"Erreur : Message vide"}
-
+              message={"Erreur : Message vide ou aucun utilisateur connecter"}
             />
 
           </div>}

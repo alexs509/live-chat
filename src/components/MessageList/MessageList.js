@@ -12,20 +12,22 @@ import { functiongetMessages } from '../../redux/action'
 export class MessageList extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(functiongetMessages())
+    if (!this.props.messages.length) {
+      this.props.dispatch(functiongetMessages())
+    }
   }
-  
+
   render() {
     console.log(this.props)
-    
+
     const { classes } = this.props;
 
     return (
       <Card className={classes.card}>
         <CardContent>
           <Typography color="textSecondary" gutterBottom>
-           <p>Live Chat <span role="img" aria-label="Msg">💬</span></p><br/>
-        </Typography>
+            <p>Live Chat <span role="img" aria-label="Msg">💬</span></p><br />
+          </Typography>
           <Typography variant="h5" component="h2">
             {this.props.messages.map(chat => <MessageItem message={chat} />)}
           </Typography>

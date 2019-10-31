@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from './components/Login/Login'
 import history from "./history";
+import logo from './logo.svg';
 
 
 function App() {
@@ -27,8 +28,8 @@ function App() {
           <Route path="/chat">
             <Chat />
           </Route>
-          <Route path="/:logged">
-            <Chat />
+          <Route path="/">
+            <Home />
           </Route>
           <Route path="/home/:logged">
             <Chat />
@@ -37,6 +38,15 @@ function App() {
       </div>
     </Router>
   );
+}
+
+function Home() {
+  return  <div>
+            <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h1>Home</h1>
+            </header>
+          </div>;
 }
 
 export default App;
