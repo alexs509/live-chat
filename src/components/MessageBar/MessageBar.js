@@ -17,7 +17,6 @@ export class MessageBar extends React.Component {
     this.state = { message: '', username: userLogged, check: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
   }
 
   getUser() {
@@ -32,8 +31,17 @@ export class MessageBar extends React.Component {
     this.handleChange(event);
     if (this.state.message && this.state.username) {
       event.preventDefault();
+
+       const socket = new WebSocket('wss://srrj6.sse.codesandbox.io/');
+     /* socket.addEventListener('open', () => {
+        socket.send(JSON.stringify(this.state.message));
+      }); */
+      socket.addEventListener('message', event => {
+        console.log(`Message from server: ${event.data}`);
+      });
       this.props.sendMessage(this.state)
       this.setState({ message: "", username: this.getUser(), check: false })
+
     }
     else {
       this.setState({ check: true })
