@@ -1,4 +1,3 @@
-import ReduxThunk from 'redux-thunk';
 import axios from 'axios'
 
 

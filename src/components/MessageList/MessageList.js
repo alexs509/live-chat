@@ -5,8 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography'
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import { createStore } from 'redux'
-import todoApp from '../../redux/reducers'
 import { connect } from 'react-redux'
 import { functiongetMessages } from '../../redux/action'
 
@@ -26,7 +24,7 @@ export class MessageList extends React.Component {
       <Card className={classes.card}>
         <CardContent>
           <Typography color="textSecondary" gutterBottom>
-           <p>Live Chat 💬</p><br/>
+           <p>Live Chat <span role="img" aria-label="Msg">💬</span></p><br/>
         </Typography>
           <Typography variant="h5" component="h2">
             {this.props.messages.map(chat => <MessageItem message={chat} />)}

@@ -5,7 +5,6 @@ import IconButton from '@material-ui/core/IconButton/IconButton';
 import SendIcon from '@material-ui/icons/Send';
 import { connect } from 'react-redux'
 import { addItem } from '../../redux/action'
-import SnackbarContent from '@material-ui/core/SnackbarContent';
 import Snackbar from '@material-ui/core/Snackbar';
 
 
@@ -18,62 +17,61 @@ export class MessageBar extends React.Component {
     this.state = { message: '', username: userLogged, check: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
+
   }
 
-  getUser(){
+  getUser() {
     let search = window.location.search;
     let params = new URLSearchParams(search);
     let userLogged = params.get('logged');
     return userLogged
   }
-  
+
 
   handleSubmit(event) {
     this.handleChange(event);
-    if(this.state.message){
-    event.preventDefault();
-    this.props.sendMessage(this.state)
-    this.setState({ message: "", username: this.getUser(), check:false })
-  }
-  else{
-    this.state.check = true
-  }
-  console.log()
+    if (this.state.message) {
+      event.preventDefault();
+      this.props.sendMessage(this.state)
+      this.setState({ message: "", username: this.getUser(), check: false })
+    }
+    else {
+      this.setState({ check: true })
+    }
   }
 
   handleChange(event) {
     this.setState({ message: event.target.value });
   }
-  
-  
+
+
 
   render() {
     return (
       <div>
-      <Paper>
-        <InputBase fullWidth
-          value={this.state.message} onChange={this.handleChange}
-          placeholder=" Tape your message"
-          type="text"
-        />
-        <IconButton onClick={this.handleSubmit} aria-label="search">
-          <SendIcon />
-        </IconButton>
-      </Paper>
-      {this.state.check == true && 
-      <div>    
-          <Snackbar
-        open={true}
-        color="danger"
-        ContentProps={{
-          'aria-describedby': 'message-id',
-        }}
-        message={"Erreur : Message vide"}
-        
-      />
-      
-      </div>}
+        <Paper>
+          <InputBase fullWidth
+            value={this.state.message} onChange={this.handleChange}
+            placeholder=" Tape your message"
+            type="text"
+          />
+          <IconButton onClick={this.handleSubmit} aria-label="search">
+            <SendIcon />
+          </IconButton>
+        </Paper>
+        {this.state.check === true &&
+          <div>
+            <Snackbar
+              open={true}
+              color="danger"
+              ContentProps={{
+                'aria-describedby': 'message-id',
+              }}
+              message={"Erreur : Message vide"}
+
+            />
+
+          </div>}
       </div>
     );
   }

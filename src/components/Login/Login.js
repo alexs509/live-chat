@@ -1,7 +1,5 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
-import IconButton from '@material-ui/core/IconButton/IconButton';
 import Button from '@material-ui/core/Button';
 import VerifiedUserIcon from '@material-ui/icons/VerifiedUser';
 import TextField from '@material-ui/core/TextField';
@@ -10,12 +8,7 @@ import { addItem } from '../../redux/action'
 import '../../App.css';
 import '../../index.css';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link,
-    useRouteMatch,
-    useParams
 } from "react-router-dom";
 
 export class Login extends React.Component {
@@ -51,7 +44,7 @@ export class Login extends React.Component {
                                 variant="outlined"
                                 type="text"
                             /><br />
-                            <Link to={"/home?logged="+this.state.loggeduser}><Button renderAs="button" variant="contained" color="primary">
+                            <Link to={"/chat?logged="+this.state.loggeduser}><Button renderAs="button" variant="contained" color="primary">
                                 <VerifiedUserIcon />
                                 Se connecter
       </Button></Link>

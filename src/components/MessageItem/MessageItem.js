@@ -6,10 +6,6 @@ import DoneAllIcon from '@material-ui/icons/DoneAll';
 
 
 export class MessageList extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
 
   render() {
     console.log(this.props.message)
